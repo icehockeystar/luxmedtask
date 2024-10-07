@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.euroit.luxmedtask.db.entity.CompanyEntity;
 import org.euroit.luxmedtask.db.repository.CompanyRepository;
 import org.euroit.luxmedtask.mapper.CompanyMapper;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -38,6 +40,16 @@ public class CompanyController {
     @ResponseStatus(CREATED)
     void createCompany(@RequestBody CreateCompanyRequest request) {
         companyRepository.save(new CompanyEntity().setId(UUID.randomUUID()).setName(request.name));
+    }
+
+    @PutMapping
+    void updateCompany() {
+        //TODO
+    }
+
+    @DeleteMapping
+    void deleteCompany() {
+        //TODO
     }
 
     public record ReadCompanyResponse(
